@@ -12,6 +12,8 @@
       --bg: #fafafa;
       --card: #fff;
       --link: #0b57d0;
+      --accent: #0d9488;
+      --border: #e2e8f0;
     }
     body {
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -20,93 +22,168 @@
       margin: 0;
       line-height: 1.6;
     }
-    main {
+    .wrap {
       max-width: 680px;
       margin: 0 auto;
       padding: 40px 20px 60px;
     }
-    h1 {
-      margin: 0 0 8px;
-      font-size: 24px;
-    }
-    .muted {
-      color: var(--muted);
-      font-size: 14px;
+    .lang-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0;
       margin-bottom: 24px;
     }
-    h2 {
-      font-size: 18px;
-      margin: 28px 0 10px;
-    }
-    p, li {
-      color: #222;
-      margin: 0 0 12px;
-    }
-    ul {
-      margin: 0 0 12px;
-      padding-left: 22px;
-    }
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .contact-email {
-      font-weight: 500;
-    }
-    .back {
-      display: inline-block;
-      margin-top: 32px;
+    .lang-switch a {
+      padding: 6px 12px;
       font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: color .2s, background .2s;
     }
+    .lang-switch a:hover { color: var(--fg); background: var(--border); }
+    .lang-switch a.active { color: var(--accent); background: #ccfbf1; }
+    h1 { margin: 0 0 8px; font-size: 24px; }
+    .muted { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+    h2 { font-size: 18px; margin: 28px 0 10px; }
+    p, li { color: #222; margin: 0 0 12px; }
+    ul { margin: 0 0 12px; padding-left: 22px; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .contact-email { font-weight: 500; }
+    .back { display: inline-block; margin-top: 32px; font-size: 14px; }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Privacy Policy – Developer Applications</h1>
-    <p class="muted">Last updated: February 2026</p>
+  <div class="wrap">
+    <nav class="lang-switch" aria-label="Language">
+      <a href="#" id="lang-en" data-lang="en">EN</a>
+      <a href="#" id="lang-es" data-lang="es">ES</a>
+    </nav>
 
-    <p>Thank you for using our applications. We respect your privacy and are committed to protecting user information.</p>
+    <h1 data-i18n="title">Privacy Policy – Developer Applications</h1>
+    <p class="muted" data-i18n="updated">Last updated: February 2026</p>
 
-    <h2>Personal Information</h2>
-    <p>Our applications do <strong>not collect, store, or share any personal information</strong>, including but not limited to:</p>
+    <p data-i18n="intro">Thank you for using our applications. We respect your privacy and are committed to protecting user information.</p>
+
+    <h2 data-i18n="h2_personal">Personal Information</h2>
+    <p data-i18n="personal_intro">Our applications do <strong>not collect, store, or share any personal information</strong>, including but not limited to:</p>
     <ul>
-      <li>Name</li>
-      <li>Email address</li>
-      <li>Location</li>
-      <li>Photos</li>
-      <li>Contacts</li>
-      <li>Device identifiers</li>
-      <li>IP address</li>
-      <li>Biometric information</li>
+      <li data-i18n="li_name">Name</li>
+      <li data-i18n="li_email">Email address</li>
+      <li data-i18n="li_location">Location</li>
+      <li data-i18n="li_photos">Photos</li>
+      <li data-i18n="li_contacts">Contacts</li>
+      <li data-i18n="li_device">Device identifiers</li>
+      <li data-i18n="li_ip">IP address</li>
+      <li data-i18n="li_biometric">Biometric information</li>
     </ul>
-    <p>No personal data is transmitted to external servers or shared with third parties.</p>
+    <p data-i18n="personal_outro">No personal data is transmitted to external servers or shared with third parties.</p>
 
-    <h2>App Data</h2>
-    <p>Some applications may store basic information locally on your device, such as:</p>
+    <h2 data-i18n="h2_appdata">App Data</h2>
+    <p data-i18n="appdata_intro">Some applications may store basic information locally on your device, such as:</p>
     <ul>
-      <li>Game progress</li>
-      <li>High scores</li>
-      <li>User preferences or settings</li>
+      <li data-i18n="li_progress">Game progress</li>
+      <li data-i18n="li_scores">High scores</li>
+      <li data-i18n="li_prefs">User preferences or settings</li>
     </ul>
-    <p>This data is stored <strong>only on the user's device</strong> and can be deleted at any time by uninstalling the application or clearing the app data from the device settings.</p>
+    <p data-i18n="appdata_outro">This data is stored <strong>only on the user's device</strong> and can be deleted at any time by uninstalling the application or clearing the app data from the device settings.</p>
 
-    <h2>Third-Party Services</h2>
-    <p>Our applications <strong>do not use third-party services</strong> that collect user data.</p>
+    <h2 data-i18n="h2_third">Third-Party Services</h2>
+    <p data-i18n="third_text">Our applications <strong>do not use third-party services</strong> that collect user data.</p>
 
-    <h2>Children's Privacy</h2>
-    <p>Our applications are designed for general audiences and do not knowingly collect personal information from children or adults.</p>
+    <h2 data-i18n="h2_children">Children's Privacy</h2>
+    <p data-i18n="children_text">Our applications are designed for general audiences and do not knowingly collect personal information from children or adults.</p>
 
-    <h2>Changes to This Privacy Policy</h2>
-    <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page.</p>
+    <h2 data-i18n="h2_changes">Changes to This Privacy Policy</h2>
+    <p data-i18n="changes_text">We may update this Privacy Policy from time to time. Any changes will be reflected on this page.</p>
 
-    <h2>Contact</h2>
-    <p>If you have any questions about this Privacy Policy, you may contact:</p>
+    <h2 data-i18n="h2_contact">Contact</h2>
+    <p data-i18n="contact_intro">If you have any questions about this Privacy Policy, you may contact:</p>
     <p><a class="contact-email" href="mailto:241099juanpablo@gmail.com">241099juanpablo@gmail.com</a></p>
 
-    <a href="index.html" class="back">← Back to home</a>
-  </main>
+    <a href="index.html" class="back" data-i18n="back">← Back to home</a>
+  </div>
+
+  <script>
+(function() {
+  var STORAGE_KEY = 'siteLang';
+  var t = {
+    en: {
+      title: 'Privacy Policy – Developer Applications',
+      updated: 'Last updated: February 2026',
+      intro: 'Thank you for using our applications. We respect your privacy and are committed to protecting user information.',
+      h2_personal: 'Personal Information',
+      personal_intro: 'Our applications do <strong>not collect, store, or share any personal information</strong>, including but not limited to:',
+      li_name: 'Name', li_email: 'Email address', li_location: 'Location', li_photos: 'Photos', li_contacts: 'Contacts',
+      li_device: 'Device identifiers', li_ip: 'IP address', li_biometric: 'Biometric information',
+      personal_outro: 'No personal data is transmitted to external servers or shared with third parties.',
+      h2_appdata: 'App Data',
+      appdata_intro: 'Some applications may store basic information locally on your device, such as:',
+      li_progress: 'Game progress', li_scores: 'High scores', li_prefs: 'User preferences or settings',
+      appdata_outro: 'This data is stored <strong>only on the user\'s device</strong> and can be deleted at any time by uninstalling the application or clearing the app data from the device settings.',
+      h2_third: 'Third-Party Services',
+      third_text: 'Our applications <strong>do not use third-party services</strong> that collect user data.',
+      h2_children: "Children's Privacy",
+      children_text: 'Our applications are designed for general audiences and do not knowingly collect personal information from children or adults.',
+      h2_changes: 'Changes to This Privacy Policy',
+      changes_text: 'We may update this Privacy Policy from time to time. Any changes will be reflected on this page.',
+      h2_contact: 'Contact',
+      contact_intro: 'If you have any questions about this Privacy Policy, you may contact:',
+      back: '← Back to home'
+    },
+    es: {
+      title: 'Política de privacidad – Aplicaciones del desarrollador',
+      updated: 'Última actualización: febrero 2026',
+      intro: 'Gracias por usar nuestras aplicaciones. Respetamos tu privacidad y nos comprometemos a proteger la información del usuario.',
+      h2_personal: 'Información personal',
+      personal_intro: 'Nuestras aplicaciones <strong>no recopilan, almacenan ni comparten información personal</strong>, incluyendo pero no limitado a:',
+      li_name: 'Nombre', li_email: 'Correo electrónico', li_location: 'Ubicación', li_photos: 'Fotos', li_contacts: 'Contactos',
+      li_device: 'Identificadores del dispositivo', li_ip: 'Dirección IP', li_biometric: 'Información biométrica',
+      personal_outro: 'Ningún dato personal se transmite a servidores externos ni se comparte con terceros.',
+      h2_appdata: 'Datos de la aplicación',
+      appdata_intro: 'Algunas aplicaciones pueden almacenar información básica localmente en tu dispositivo, como:',
+      li_progress: 'Progreso en juegos', li_scores: 'Puntuaciones', li_prefs: 'Preferencias o ajustes del usuario',
+      appdata_outro: 'Estos datos se almacenan <strong>solo en el dispositivo del usuario</strong> y pueden eliminarse en cualquier momento desinstalando la aplicación o borrando los datos desde la configuración del dispositivo.',
+      h2_third: 'Servicios de terceros',
+      third_text: 'Nuestras aplicaciones <strong>no utilizan servicios de terceros</strong> que recopilen datos del usuario.',
+      h2_children: 'Privacidad de menores',
+      children_text: 'Nuestras aplicaciones están diseñadas para público general y no recopilan información personal de niños o adultos de forma intencionada.',
+      h2_changes: 'Cambios en esta política de privacidad',
+      changes_text: 'Podemos actualizar esta política de privacidad de vez en cuando. Los cambios se reflejarán en esta página.',
+      h2_contact: 'Contacto',
+      contact_intro: 'Si tienes preguntas sobre esta política de privacidad, puedes contactar:',
+      back: '← Volver al inicio'
+    }
+  };
+
+  function getLang() {
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      return (saved === 'es' || saved === 'en') ? saved : 'en';
+    } catch (e) { return 'en'; }
+  }
+
+  function setLang(lang) {
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (t[lang] && t[lang][key] !== undefined) {
+        el.innerHTML = t[lang][key];
+      }
+    });
+    document.querySelectorAll('.lang-switch a').forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('data-lang') === lang);
+    });
+  }
+
+  setLang(getLang());
+  document.querySelectorAll('.lang-switch a').forEach(function(a) {
+    a.addEventListener('click', function(e) { e.preventDefault(); setLang(a.getAttribute('data-lang')); });
+  });
+})();
+  </script>
 </body>
 </html>

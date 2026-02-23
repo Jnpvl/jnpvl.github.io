@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Juan Pablo Vargas Lozano — Desarrollador</title>
-  <meta name="description" content="Sitio del desarrollador: soporte, política de privacidad y enlaces oficiales para aplicaciones publicadas en Google Play." />
+  <title>Juan Pablo Vargas Lozano — Developer</title>
+  <meta name="description" content="Developer site: support, privacy policy and official links for apps published on Google Play." />
   <link rel="canonical" href="https://jnpvl.github.io/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,7 +38,6 @@
       min-height: 100vh;
     }
 
-    /* Subtle background pattern */
     body::before {
       content: '';
       position: fixed;
@@ -58,9 +57,37 @@
       padding: 0 20px;
     }
 
+    /* Language switch */
+    .lang-switch {
+      display: flex;
+      justify-content: flex-end;
+      padding: 12px 0 0;
+      gap: 0;
+    }
+
+    .lang-switch a {
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: color .2s, background .2s;
+    }
+
+    .lang-switch a:hover {
+      color: var(--fg);
+      background: var(--border);
+    }
+
+    .lang-switch a.active {
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
     /* Hero */
     .hero {
-      padding: 56px 0 40px;
+      padding: 40px 0 40px;
       text-align: center;
     }
 
@@ -125,11 +152,7 @@
       50% { opacity: .4; }
     }
 
-    /* CTA */
-    .cta-wrap {
-      margin-top: 28px;
-      animation: fadeInUp .6s ease-out .3s both;
-    }
+    .cta-wrap { margin-top: 28px; animation: fadeInUp .6s ease-out .3s both; }
 
     .cta {
       display: inline-flex;
@@ -156,7 +179,6 @@
 
     .cta:active { transform: translateY(0); }
 
-    /* Main content */
     main { padding-bottom: 56px; }
 
     .card {
@@ -175,37 +197,15 @@
       border-color: var(--accent-light);
     }
 
-    .card-head {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
+    .card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
 
-    .card h2 {
-      margin: 0;
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--fg);
-    }
+    .card h2 { margin: 0; font-size: 18px; font-weight: 600; color: var(--fg); }
 
-    .card p {
-      margin: 0;
-      color: var(--fg-soft);
-      font-size: 15px;
-    }
+    .card p { margin: 0; color: var(--fg-soft); font-size: 15px; }
 
-    .card p + .skills,
-    .card p + ul {
-      margin-top: 16px;
-    }
+    .card p + .skills, .card p + ul { margin-top: 16px; }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color .2s;
-    }
+    a { color: var(--accent); text-decoration: none; font-weight: 500; transition: color .2s; }
 
     a:hover { color: var(--accent-hover); }
 
@@ -213,11 +213,7 @@
 
     li { margin: 6px 0; color: var(--fg-soft); }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .skills { display: flex; flex-wrap: wrap; gap: 8px; }
 
     .skill {
       background: var(--bg);
@@ -230,10 +226,7 @@
       transition: border-color .2s, color .2s;
     }
 
-    .card:hover .skill {
-      border-color: var(--accent-light);
-      color: var(--accent);
-    }
+    .card:hover .skill { border-color: var(--accent-light); color: var(--accent); }
 
     code {
       background: var(--bg);
@@ -246,40 +239,42 @@
     .contact-email { font-weight: 600; }
 
     .links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
-    .link-pill { display:inline-flex; gap:8px; align-items:center; padding:8px 12px; border-radius:999px; border:1px solid var(--border); background: var(--bg); }
 
-    footer {
-      padding: 24px 0 40px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .link-pill { display: inline-flex; gap: 8px; align-items: center; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg); }
+
+    footer { padding: 24px 0 40px; text-align: center; color: var(--muted); font-size: 13px; }
 
     footer a { color: var(--muted); }
+
     footer a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
   <div class="wrap">
+    <nav class="lang-switch" aria-label="Language">
+      <a href="#" id="lang-en" data-lang="en">EN</a>
+      <a href="#" id="lang-es" data-lang="es">ES</a>
+    </nav>
+
     <header class="hero">
-      <span class="badge">Full Stack · QA · Apps móviles</span>
+      <span class="badge" data-i18n="badge">Full Stack · QA · Mobile apps</span>
       <h1>Juan Pablo Vargas Lozano</h1>
-      <p class="tagline">Desarrollo aplicaciones web y móviles que funcionan: desde idea hasta publicación en tiendas.</p>
+      <p class="tagline" data-i18n="tagline">I build web and mobile apps that work—from idea to store listing.</p>
       <p class="location">Hermosillo, Sonora</p>
       <div class="cta-wrap">
-        <a class="cta" href="mailto:241099juanpablo@gmail.com">Contactar <span aria-hidden="true">→</span></a>
+        <a class="cta" href="mailto:241099juanpablo@gmail.com" data-i18n="cta">Contact <span aria-hidden="true">→</span></a>
       </div>
-      <div class="links" aria-label="Enlaces principales">
-        <a class="link-pill" href="https://play.google.com/store/apps/developer?id=juanpivl" target="_blank" rel="noopener">Google Play (Developer)</a>
-        <a class="link-pill" href="privacy-policy.html">Política de privacidad</a>
-        <a class="link-pill" href="terms.html">Términos</a>
+      <div class="links" aria-label="Main links">
+        <a class="link-pill" href="https://play.google.com/store/apps/developer?id=juanpivl" target="_blank" rel="noopener" data-i18n="link_play">Google Play (Developer)</a>
+        <a class="link-pill" href="privacy-policy.html" data-i18n="link_privacy">Privacy Policy</a>
+        <a class="link-pill" href="terms.html" data-i18n="link_terms">Terms</a>
       </div>
     </header>
 
     <main>
       <section class="card">
-        <div class="card-head"><h2>Sobre mí</h2></div>
-        <p>Desarrollador con experiencia en full stack, testing (manual y automatizado) y publicación en Google Play y App Store. He trabajado con React, React Native, Ionic, Node.js, Angular y Next.js en equipos de producto y consultoría tecnológica.</p>
+        <div class="card-head"><h2 data-i18n="about_title">About me</h2></div>
+        <p data-i18n="about_text">Developer with experience in full stack, manual and automated testing, and publishing on Google Play and App Store. I've worked with React, React Native, Ionic, Node.js, Angular, and Next.js on product teams and tech consulting.</p>
         <div class="skills">
           <span class="skill">React / React Native</span>
           <span class="skill">Ionic</span>
@@ -291,38 +286,124 @@
       </section>
 
       <section class="card">
-        <div class="card-head"><h2>Apps</h2></div>
-        <p>Encuentra mis aplicaciones publicadas en Google Play en mi perfil de desarrollador: <a href="https://play.google.com/store/apps/developer?id=juanpivl" target="_blank" rel="noopener">ver apps</a>.</p>
-        <p style="margin-top:10px; color: var(--muted); font-size: 14px;">App Store: actualmente en revisión (enlace disponible cuando sea aprobado).</p>
+        <div class="card-head"><h2 data-i18n="apps_title">Apps</h2></div>
+        <p><span data-i18n="apps_text">Find my apps on Google Play on my developer profile:</span> <a href="https://play.google.com/store/apps/developer?id=juanpivl" target="_blank" rel="noopener" data-i18n="apps_link">view apps</a>.</p>
+        <p style="margin-top:10px; color: var(--muted); font-size: 14px;" data-i18n="apps_note">App Store: currently under review (link when approved).</p>
       </section>
 
       <section class="card">
-        <div class="card-head"><h2>Soporte</h2></div>
-        <p>¿Problemas con alguna de mis aplicaciones? Puedes usar el correo de la ficha en Google Play o escribirme directo a <a href="mailto:241099juanpablo@gmail.com" class="contact-email">241099juanpablo@gmail.com</a>.</p>
+        <div class="card-head"><h2 data-i18n="support_title">Support</h2></div>
+        <p><span data-i18n="support_text">Having issues with one of my apps? You can use the email on the app's Google Play listing or email me at</span> <a href="mailto:241099juanpablo@gmail.com" class="contact-email">241099juanpablo@gmail.com</a>.</p>
       </section>
 
       <section class="card">
         <div class="card-head"><h2>AdMob</h2></div>
-        <p>El archivo <code>app-ads.txt</code> está en la raíz del sitio: <a href="app-ads.txt">app-ads.txt</a></p>
+        <p><span data-i18n="admob_text">The app-ads.txt file is at the root of this site:</span> <a href="app-ads.txt">app-ads.txt</a></p>
       </section>
 
       <section class="card">
-        <div class="card-head"><h2>Políticas</h2></div>
+        <div class="card-head"><h2 data-i18n="policies_title">Policies</h2></div>
         <ul>
-          <li><a href="privacy-policy.html">Política de privacidad</a></li>
-          <li><a href="terms.html">Términos y condiciones</a></li>
+          <li><a href="privacy-policy.html" data-i18n="policy_privacy">Privacy Policy</a></li>
+          <li><a href="terms.html" data-i18n="policy_terms">Terms and conditions</a></li>
         </ul>
       </section>
     </main>
 
     <footer>
-      <p>Última actualización: febrero 2026</p>
+      <p data-i18n="footer_updated">Last updated: February 2026</p>
       <p>
-        <a href="privacy-policy.html">Privacidad</a> ·
-        <a href="terms.html">Términos</a> ·
+        <a href="privacy-policy.html" data-i18n="footer_privacy">Privacy</a> ·
+        <a href="terms.html" data-i18n="footer_terms">Terms</a> ·
         <a href="app-ads.txt">app-ads.txt</a>
       </p>
     </footer>
   </div>
+
+  <script>
+(function() {
+  var STORAGE_KEY = 'siteLang';
+
+  var t = {
+    en: {
+      badge: 'Full Stack · QA · Mobile apps',
+      tagline: 'I build web and mobile apps that work—from idea to store listing.',
+      cta: 'Contact →',
+      link_play: 'Google Play (Developer)',
+      link_privacy: 'Privacy Policy',
+      link_terms: 'Terms',
+      about_title: 'About me',
+      about_text: "Developer with experience in full stack, manual and automated testing, and publishing on Google Play and App Store. I've worked with React, React Native, Ionic, Node.js, Angular, and Next.js on product teams and tech consulting.",
+      apps_title: 'Apps',
+      apps_text: 'Find my apps on Google Play on my developer profile:',
+      apps_link: 'view apps',
+      apps_note: 'App Store: currently under review (link when approved).',
+      support_title: 'Support',
+      support_text: "Having issues with one of my apps? You can use the email on the app's Google Play listing or email me at",
+      admob_text: 'The app-ads.txt file is at the root of this site:',
+      policies_title: 'Policies',
+      policy_privacy: 'Privacy Policy',
+      policy_terms: 'Terms and conditions',
+      footer_updated: 'Last updated: February 2026',
+      footer_privacy: 'Privacy',
+      footer_terms: 'Terms'
+    },
+    es: {
+      badge: 'Full Stack · QA · Apps móviles',
+      tagline: 'Desarrollo aplicaciones web y móviles que funcionan: desde idea hasta publicación en tiendas.',
+      cta: 'Contactar →',
+      link_play: 'Google Play (Desarrollador)',
+      link_privacy: 'Política de privacidad',
+      link_terms: 'Términos',
+      about_title: 'Sobre mí',
+      about_text: 'Desarrollador con experiencia en full stack, testing (manual y automatizado) y publicación en Google Play y App Store. He trabajado con React, React Native, Ionic, Node.js, Angular y Next.js en equipos de producto y consultoría tecnológica.',
+      apps_title: 'Apps',
+      apps_text: 'Encuentra mis aplicaciones en Google Play en mi perfil de desarrollador:',
+      apps_link: 'ver apps',
+      apps_note: 'App Store: actualmente en revisión (enlace cuando sea aprobado).',
+      support_title: 'Soporte',
+      support_text: '¿Problemas con alguna de mis aplicaciones? Puedes usar el correo de la ficha en Google Play o escribirme a',
+      admob_text: 'El archivo app-ads.txt está en la raíz del sitio:',
+      policies_title: 'Políticas',
+      policy_privacy: 'Política de privacidad',
+      policy_terms: 'Términos y condiciones',
+      footer_updated: 'Última actualización: febrero 2026',
+      footer_privacy: 'Privacidad',
+      footer_terms: 'Términos'
+    }
+  };
+
+  function getLang() {
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      return (saved === 'es' || saved === 'en') ? saved : 'en';
+    } catch (e) { return 'en'; }
+  }
+
+  function setLang(lang) {
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (t[lang] && t[lang][key] !== undefined) {
+        el.textContent = t[lang][key];
+      }
+    });
+    document.querySelectorAll('.lang-switch a').forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('data-lang') === lang);
+    });
+  }
+
+  var lang = getLang();
+  setLang(lang);
+
+  document.querySelectorAll('.lang-switch a').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      setLang(a.getAttribute('data-lang'));
+    });
+  });
+})();
+  </script>
 </body>
 </html>

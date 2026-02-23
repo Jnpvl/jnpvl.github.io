@@ -1,45 +1,157 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Términos y condiciones</title>
-  <meta name="description" content="Términos y condiciones para el uso de las aplicaciones publicadas por Juan Pablo Vargas Lozano." />
+  <title>Terms and Conditions – Developer Applications</title>
+  <meta name="description" content="Terms and conditions for applications published by Juan Pablo Vargas Lozano." />
   <style>
-    body{ font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; }
-    main{ max-width:900px; margin:0 auto; padding:40px 20px 60px; line-height:1.6; }
-    h1{ margin:0 0 10px; }
-    p, li{ color:#222; }
-    .muted{ color:#555; }
-    a{ color:#0b57d0; }
+    :root {
+      --fg: #1a1a1a;
+      --muted: #555;
+      --bg: #fafafa;
+      --link: #0b57d0;
+      --accent: #0d9488;
+      --border: #e2e8f0;
+    }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      margin: 0;
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+    .lang-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0;
+      margin-bottom: 24px;
+    }
+    .lang-switch a {
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: color .2s, background .2s;
+    }
+    .lang-switch a:hover { color: var(--fg); background: var(--border); }
+    .lang-switch a.active { color: var(--accent); background: #ccfbf1; }
+    h1 { margin: 0 0 8px; font-size: 24px; }
+    .muted { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+    h2 { font-size: 18px; margin: 28px 0 10px; }
+    p, li { color: #222; margin: 0 0 12px; }
+    ul { margin: 0 0 12px; padding-left: 22px; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back { display: inline-block; margin-top: 32px; font-size: 14px; }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Términos y condiciones</h1>
-    <p class="muted">Última actualización: 2026-02-23</p>
+  <div class="wrap">
+    <nav class="lang-switch" aria-label="Language">
+      <a href="#" id="lang-en" data-lang="en">EN</a>
+      <a href="#" id="lang-es" data-lang="es">ES</a>
+    </nav>
 
-    <p>Al descargar, acceder o usar cualquiera de las aplicaciones publicadas por este desarrollador ("Apps"), aceptas estos términos. Si no estás de acuerdo, no uses las Apps.</p>
+    <h1 data-i18n="title">Terms and Conditions</h1>
+    <p class="muted" data-i18n="updated">Last updated: February 2026</p>
 
-    <h2>Uso</h2>
+    <p data-i18n="intro">By downloading, accessing, or using any of the applications published by this developer ("Apps"), you agree to these terms. If you do not agree, do not use the Apps.</p>
+
+    <h2 data-i18n="h2_use">Use</h2>
     <ul>
-      <li>No uses las Apps para fines ilegales o no autorizados.</li>
-      <li>No intentes afectar la seguridad, disponibilidad o funcionamiento de las Apps.</li>
+      <li data-i18n="use_1">Do not use the Apps for illegal or unauthorized purposes.</li>
+      <li data-i18n="use_2">Do not attempt to affect the security, availability, or operation of the Apps.</li>
     </ul>
 
-    <h2>Servicios de terceros</h2>
-    <p>Las Apps pueden integrar servicios de terceros (por ejemplo, publicidad/analítica). El uso de esos servicios puede estar sujeto a sus propios términos y políticas.</p>
+    <h2 data-i18n="h2_third">Third-Party Services</h2>
+    <p data-i18n="third_text">The Apps may integrate third-party services (e.g., advertising or analytics). Use of those services may be subject to their own terms and policies.</p>
 
-    <h2>Limitación de responsabilidad</h2>
-    <p>Las Apps se proporcionan "tal cual". En la medida permitida por la ley, no asumimos responsabilidad por daños indirectos o consecuenciales derivados del uso o imposibilidad de uso de las Apps.</p>
+    <h2 data-i18n="h2_liability">Limitation of Liability</h2>
+    <p data-i18n="liability_text">The Apps are provided "as is." To the extent permitted by law, we are not liable for indirect or consequential damages arising from the use or inability to use the Apps.</p>
 
-    <h2>Cambios</h2>
-    <p>Podemos actualizar estos términos cuando sea necesario. Publicaremos la versión actualizada en esta página.</p>
+    <h2 data-i18n="h2_changes">Changes</h2>
+    <p data-i18n="changes_text">We may update these terms when necessary. The updated version will be posted on this page.</p>
 
-    <h2>Contacto</h2>
-    <p>Para dudas, utiliza el correo de contacto publicado en el sitio principal o en la ficha de la app en Google Play.</p>
+    <h2 data-i18n="h2_contact">Contact</h2>
+    <p data-i18n="contact_text">For questions, use the contact email published on this site or on the app listing on Google Play.</p>
 
-    <p><a href="index.html">Volver al inicio</a></p>
-  </main>
+    <a href="index.html" class="back" data-i18n="back">← Back to home</a>
+  </div>
+
+  <script>
+(function() {
+  var STORAGE_KEY = 'siteLang';
+  var t = {
+    en: {
+      title: 'Terms and Conditions',
+      updated: 'Last updated: February 2026',
+      intro: 'By downloading, accessing, or using any of the applications published by this developer ("Apps"), you agree to these terms. If you do not agree, do not use the Apps.',
+      h2_use: 'Use',
+      use_1: 'Do not use the Apps for illegal or unauthorized purposes.',
+      use_2: 'Do not attempt to affect the security, availability, or operation of the Apps.',
+      h2_third: 'Third-Party Services',
+      third_text: 'The Apps may integrate third-party services (e.g., advertising or analytics). Use of those services may be subject to their own terms and policies.',
+      h2_liability: 'Limitation of Liability',
+      liability_text: 'The Apps are provided "as is." To the extent permitted by law, we are not liable for indirect or consequential damages arising from the use or inability to use the Apps.',
+      h2_changes: 'Changes',
+      changes_text: 'We may update these terms when necessary. The updated version will be posted on this page.',
+      h2_contact: 'Contact',
+      contact_text: 'For questions, use the contact email published on this site or on the app listing on Google Play.',
+      back: '← Back to home'
+    },
+    es: {
+      title: 'Términos y condiciones',
+      updated: 'Última actualización: febrero 2026',
+      intro: 'Al descargar, acceder o usar cualquiera de las aplicaciones publicadas por este desarrollador ("Apps"), aceptas estos términos. Si no estás de acuerdo, no uses las Apps.',
+      h2_use: 'Uso',
+      use_1: 'No uses las Apps para fines ilegales o no autorizados.',
+      use_2: 'No intentes afectar la seguridad, disponibilidad o funcionamiento de las Apps.',
+      h2_third: 'Servicios de terceros',
+      third_text: 'Las Apps pueden integrar servicios de terceros (por ejemplo, publicidad o analítica). El uso de esos servicios puede estar sujeto a sus propios términos y políticas.',
+      h2_liability: 'Limitación de responsabilidad',
+      liability_text: 'Las Apps se proporcionan "tal cual". En la medida permitida por la ley, no asumimos responsabilidad por daños indirectos o consecuenciales derivados del uso o imposibilidad de uso de las Apps.',
+      h2_changes: 'Cambios',
+      changes_text: 'Podemos actualizar estos términos cuando sea necesario. La versión actualizada se publicará en esta página.',
+      h2_contact: 'Contacto',
+      contact_text: 'Para dudas, utiliza el correo de contacto publicado en este sitio o en la ficha de la app en Google Play.',
+      back: '← Volver al inicio'
+    }
+  };
+
+  function getLang() {
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      return (saved === 'es' || saved === 'en') ? saved : 'en';
+    } catch (e) { return 'en'; }
+  }
+
+  function setLang(lang) {
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (t[lang] && t[lang][key] !== undefined) {
+        el.textContent = t[lang][key];
+      }
+    });
+    document.querySelectorAll('.lang-switch a').forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('data-lang') === lang);
+    });
+  }
+
+  setLang(getLang());
+  document.querySelectorAll('.lang-switch a').forEach(function(a) {
+    a.addEventListener('click', function(e) { e.preventDefault(); setLang(a.getAttribute('data-lang')); });
+  });
+})();
+  </script>
 </body>
 </html>
